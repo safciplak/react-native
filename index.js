@@ -11,6 +11,7 @@ import JustifyContentExample from './components/JustifyContentExample';
 import Touch from './components/Touch';
 import Touchable from './components/Touchable';
 import VerticalScrollView from './components/VerticalScrollView';
+import HorizontalScrollView from './components/HorizontalScrollView';
 import App from './App';
 
-AppRegistry.registerComponent('reactnative', () => VerticalScrollView);
+AppRegistry.registerComponent('reactnative', () => HorizontalScrollView);
