@@ -9,6 +9,7 @@ import FlexDimension from './components/FlexDimension';
 import FlexExample from './components/FlexExample';
 import JustifyContentExample from './components/JustifyContentExample';
 import Touch from './components/Touch';
+import Touchable from './components/Touchable';
 import App from './App';
 
-AppRegistry.registerComponent('reactnative', () => Touch);
+AppRegistry.registerComponent('reactnative', () => Touchable);

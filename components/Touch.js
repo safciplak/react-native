@@ -23,7 +23,7 @@ export default class Touch extends Component {
       }}
       onPress={this._onPressButton}
       >This is a button</Button>
-      
+
       </View>
     );
   }
