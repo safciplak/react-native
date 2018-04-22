@@ -3,6 +3,8 @@ import HelloWorld from './components/HelloWorld';
 import Robot from './components/Robot';
 import MultipleGreetings from './components/MultipleGreetings';
 import TextBlink from './components/TextBlink';
-//import App from './App';
+import Style from './components/Style';
+import FixedDimension from './components/FixedDimension';
+import App from './App';
 
-AppRegistry.registerComponent('reactnative', () => TextBlink);
+AppRegistry.registerComponent('reactnative', () => FixedDimension);
