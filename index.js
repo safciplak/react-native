@@ -7,6 +7,7 @@ import Style from './components/Style';
 import FixedDimension from './components/FixedDimension';
 import FlexDimension from './components/FlexDimension';
 import FlexExample from './components/FlexExample';
+import JustifyContentExample from './components/JustifyContentExample';
 import App from './App';
 
-AppRegistry.registerComponent('reactnative', () => FlexExample);
+AppRegistry.registerComponent('reactnative', () => JustifyContentExample);
