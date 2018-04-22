@@ -10,6 +10,7 @@ import FlexExample from './components/FlexExample';
 import JustifyContentExample from './components/JustifyContentExample';
 import Touch from './components/Touch';
 import Touchable from './components/Touchable';
+import VerticalScrollView from './components/VerticalScrollView';
 import App from './App';
 
-AppRegistry.registerComponent('reactnative', () => Touchable);
+AppRegistry.registerComponent('reactnative', () => VerticalScrollView);
