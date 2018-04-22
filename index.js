@@ -8,6 +8,7 @@ import FixedDimension from './components/FixedDimension';
 import FlexDimension from './components/FlexDimension';
 import FlexExample from './components/FlexExample';
 import JustifyContentExample from './components/JustifyContentExample';
+import TextInput from './components/TextInput';
 import App from './App';
 
-AppRegistry.registerComponent('reactnative', () => JustifyContentExample);
+AppRegistry.registerComponent('reactnative', () => TextInput);
