@@ -12,6 +12,7 @@ import Touch from './components/Touch';
 import Touchable from './components/Touchable';
 import VerticalScrollView from './components/VerticalScrollView';
 import HorizontalScrollView from './components/HorizontalScrollView';
+import ViewPagerExample from './components/ViewPagerExample';
 import App from './App';
 
-AppRegistry.registerComponent('reactnative', () => HorizontalScrollView);
+AppRegistry.registerComponent('reactnative', () => ViewPagerExample);
