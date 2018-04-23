@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {FlatList, StyleSheet, Text, View, Image, Alert} from 'react-native';
+import {FlatList, StyleSheet, Text, View, Image, Alert, Platform, TouchableHighlight} from 'react-native';
 import flatListData from '../data/flatListData';
 import Swipeout from 'react-native-swipeout';
 
@@ -105,9 +105,31 @@ export default class BasicFlatList extends Component {
           };
       });
   }
+  _onPressAdd () {
+    alert('you add item');
+  }
   render(){
     return(
-      <View style={{flex:1, marginTop:22}}>
+      <View style={{flex:1, marginTop: Platform.OS === 'ios' ? 34 : 0}}>
+        <View style={{
+            backgroundColor:'tomato',
+            flexDirection:'row',
+            justifyContent:'flex-end',
+            alignItems:'center',
+            height:64,
+          }}>
+            <TouchableHighlight
+              style={{marginRight:10}}
+              underlayColor='tomato'
+              onPress={this._onPressAdd}
+              >
+                <Image style={{width:25,height:35}}
+                  source={require('../icons/plus.png')}
+                  />
+
+            </TouchableHighlight>
+
+        </View>
         <FlatList
         data={flatListData}
         renderItem={({item,index})=>{
