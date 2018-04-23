@@ -13,6 +13,7 @@ import Touchable from './components/Touchable';
 import VerticalScrollView from './components/VerticalScrollView';
 import HorizontalScrollView from './components/HorizontalScrollView';
 import ViewPagerExample from './components/ViewPagerExample';
+import BasicFlatList from './components/BasicFlatList';
 import App from './App';
 
-AppRegistry.registerComponent('reactnative', () => ViewPagerExample);
+AppRegistry.registerComponent('reactnative', () => BasicFlatList);
