@@ -14,6 +14,8 @@ import VerticalScrollView from './components/VerticalScrollView';
 import HorizontalScrollView from './components/HorizontalScrollView';
 import ViewPagerExample from './components/ViewPagerExample';
 import BasicFlatList from './components/BasicFlatList';
+import HorizontalFlatList from './components/HorizontalFlatList';
+import BasicSectionList from './components/BasicSectionList';
 import App from './App';
 
-AppRegistry.registerComponent('reactnative', () => BasicFlatList);
+AppRegistry.registerComponent('reactnative', () => BasicSectionList);
