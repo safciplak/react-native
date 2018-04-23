@@ -16,6 +16,7 @@ import ViewPagerExample from './components/ViewPagerExample';
 import BasicFlatList from './components/BasicFlatList';
 import HorizontalFlatList from './components/HorizontalFlatList';
 import BasicSectionList from './components/BasicSectionList';
+import LifecycleComponent from './components/LifecycleComponent';
 import App from './App';
 
-AppRegistry.registerComponent('reactnative', () => BasicSectionList);
+AppRegistry.registerComponent('reactnative', () => LifecycleComponent);
