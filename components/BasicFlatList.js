@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {FlatList, StyleSheet, Text, View, Image, Alert, Platform, TouchableHighlight} from 'react-native';
 import flatListData from '../data/flatListData';
 import Swipeout from 'react-native-swipeout';
+import AddModal from './AddModal';
 
 class FlatListItem extends Component {
   constructor(props){
@@ -97,16 +98,20 @@ export default class BasicFlatList extends Component {
     this.state = ({
       deletedRowKey: null,
     });
+    this._onPressAdd = this._onPressAdd.bind(this);
   }
-  refreshFlatList = (deletedKey) => {
+  refreshFlatList = (activeKey) => {
       this.setState((prevState) => {
         return {
-            deletedRowKey: deletedKey
+            deletedRowKey: activeKey
           };
       });
+      this.refs.flatList.scrollToEnd();
   }
   _onPressAdd () {
-    alert('you add item');
+    //alert('you add item');
+    this.refs.addModal.showAddModal();
+
   }
   render(){
     return(
@@ -131,6 +136,7 @@ export default class BasicFlatList extends Component {
 
         </View>
         <FlatList
+        ref={'flatList'}
         data={flatListData}
         renderItem={({item,index})=>{
           //console.log(`Item = ${JSON.stringify(item)}, index = ${index}`);
@@ -142,6 +148,9 @@ export default class BasicFlatList extends Component {
         }}
         >
         </FlatList>
+        <AddModal ref={'addModal'} parentFlatList={this}>
+
+        </AddModal>
       </View>
     );
   }
