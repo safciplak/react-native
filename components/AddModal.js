@@ -8,6 +8,7 @@ import {
 import Modal from 'react-native-modalbox';
 import Button from 'react-native-button';
 import flatListData from '../data/flatListData';
+import {insertNewFoodToServer} from '../networking/Server';
 
 var screen = Dimensions.get('window');
 export default class AddModal extends Component{
@@ -95,13 +96,16 @@ export default class AddModal extends Component{
           }
           const newKey = this.genereteKey(24);
           const newFood = {
-              key: newKey,
+              //key: newKey,
               name: this.state.newFoodName,
-              image: "https://www.uniquedevontours.com/wp-content/uploads/2015/03/Cream-Tea-Pic-2-1024x713.jpg",
+              //image: "https://www.uniquedevontours.com/wp-content/uploads/2015/03/Cream-Tea-Pic-2-1024x713.jpg",
               foodDescription: this.state.newFoodDescription,
           };
-          flatListData.push(newFood);
-          this.props.parentFlatList.refreshFlatList(newKey);
+
+          insertNewFoodToServer(newFood).then((result) => {
+              this.props.parentFlatList.refreshDataFromServer();
+          });
+
           this.refs.myModal.close();
         }}
         >
