@@ -84,7 +84,7 @@ export default class AddModal extends Component{
           padding:8,
           marginLeft:70,
           marginRight:70,
-          heigt:40,
+          height:40,
           borderRadius:6,
           backgroundColor:'mediumseagreen',
         }}

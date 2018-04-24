@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {SectionList,Text,View,Alert,Platfrom} from 'react-native';
 
-const apiGetAllFoods = 'http://localhost:8080';
+const apiGetAllFoods = 'http://localhost:8080/food';
 async function getFoodsFromServer() {
   try{
     let response = await fetch(apiGetAllFoods);
