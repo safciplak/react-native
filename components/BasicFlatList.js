@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {FlatList, StyleSheet, Text, View, Image, Alert, Platform, TouchableHighlight} from 'react-native';
+import {FlatList, StyleSheet, Text, View, Image, Alert, Platform, TouchableHighlight, RefreshControl} from 'react-native';
 import flatListData from '../data/flatListData';
 import Swipeout from 'react-native-swipeout';
 import AddModal from './AddModal';
 import EditModal from './EditModal';
+import {getFoodsFromServer} from '../networking/Server'
 
 class FlatListItem extends Component {
   constructor(props){
@@ -114,8 +115,28 @@ export default class BasicFlatList extends Component {
     super(props);
     this.state = ({
       deletedRowKey: null,
+      refreshing: false,
+      foodFromServer: [],
     });
     this._onPressAdd = this._onPressAdd.bind(this);
+  }
+
+  componentDidMount(){
+    this.refreshDataFromServer();
+  }
+  refreshDataFromServer = () => {
+    this.setState({refreshing:true});
+    getFoodsFromServer().then((foods) => {
+      //console.log(foods);
+      this.setState({foodFromServer:foods});
+      this.setState({refreshing:false});
+    }).catch((error) => {
+      this.setState({foodFromServer:[]});
+      this.setState({refreshing:false});
+    })
+  }
+  onRefresh = () => {
+    this.refreshDataFromServer();
   }
   refreshFlatList = (activeKey) => {
       this.setState((prevState) => {
@@ -134,7 +155,7 @@ export default class BasicFlatList extends Component {
     return(
       <View style={{flex:1, marginTop: Platform.OS === 'ios' ? 34 : 0}}>
         <View style={{
-            backgroundColor:'tomato',
+            backgroundColor:'blue',
             flexDirection:'row',
             justifyContent:'flex-end',
             alignItems:'center',
@@ -154,15 +175,22 @@ export default class BasicFlatList extends Component {
         </View>
         <FlatList
         ref={'flatList'}
-        data={flatListData}
+        data={this.state.foodFromServer}
         renderItem={({item,index})=>{
           //console.log(`Item = ${JSON.stringify(item)}, index = ${index}`);
           return(
             <FlatListItem item={item} index={index} parentFlatList={this}>
 
             </FlatListItem>
+
           );
         }}
+        keyExtractor={(item, index) => item.name}
+        refreshControl={<RefreshControl
+          refreshing={this.state.refreshing}
+          onRefresh={this.onRefresh}
+          />
+          }
         >
         </FlatList>
         <AddModal ref={'addModal'} parentFlatList={this}>

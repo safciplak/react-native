@@ -19,4 +19,4 @@ import BasicSectionList from './components/BasicSectionList';
 import LifecycleComponent from './components/LifecycleComponent';
 import App from './App';
 
-AppRegistry.registerComponent('reactnative', () => LifecycleComponent);
+AppRegistry.registerComponent('reactnative', () => BasicFlatList);
